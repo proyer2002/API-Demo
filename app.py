@@ -18,6 +18,7 @@ from db import db
 import sys
 
 app = Flask(__name__)
+db.init_app(app)
 
 # Database Connection
 try:
@@ -110,6 +111,6 @@ api.add_resource(TokenRefresh, '/refresh')
 
 
 if __name__ == '__main__':  # Main
-    db.init_app(app)
+    # db.init_app(app)
     db.create_all()
     app.run(port=5000, debug=True)
