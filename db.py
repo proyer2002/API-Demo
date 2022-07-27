@@ -3,4 +3,3 @@ from app import app
 
 db = SQLAlchemy()
 db.init_app(app)
-db.create_all()
