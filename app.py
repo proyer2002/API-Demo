@@ -93,6 +93,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = conn
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_BLACKLIST_ENABLED'] = True
 app.config['JWT_BLACKLIST_TOKEN_CHECKS'] = ['access', 'refresh']
+app.config['JWT_IDENTITY_CLAIM'] = 'sub'
 app.secret_key = 'phoebe'  # dont put key inside reveal api, here for testing purposes
 api = Api(app)
 
