@@ -27,11 +27,6 @@ except:
     sys.exit({'message': 'Unable to connect to database!'})
 
 
-# @app.before_first_request
-# def create_tables():
-#     db.create_all()
-
-
 jwt = JWTManager(app)  # auth
 
 
