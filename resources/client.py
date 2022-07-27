@@ -35,7 +35,7 @@ class Client(Resource):
                         help="Every client needs some client info."
                         )
 
-    @jwt_required
+    @jwt_required()
     def get(self, client_name):
         client = ClientModel.find_by_name(client_name)
         if client:
@@ -59,7 +59,7 @@ class Client(Resource):
 
         return client.json(), 201
 
-    @jwt_required
+    @jwt_required()
     def delete(self, client_name):
         claims = get_jwt()
         if not claims['is_admin']:
