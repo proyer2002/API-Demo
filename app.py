@@ -33,9 +33,9 @@ except:
 jwt = JWTManager(app)  # auth
 
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
+# @app.before_first_request
+# def create_tables():
+#     db.create_all()
 # Token validation
 
 
@@ -111,5 +111,5 @@ api.add_resource(TokenRefresh, '/refresh')
 
 if __name__ == '__main__':  # Main
     db.init_app(app)
-    # db.create_all()
+    db.create_all()
     app.run(port=5000, debug=True)
