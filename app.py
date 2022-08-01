@@ -22,7 +22,7 @@ db.init_app(app)
 
 # Database Connection
 try:
-    conn = "postgresql://revealdata:H0th15C0ld!!@mastermsa-db-001.cidxb3vnerlr.us-east-1.rds.amazonaws.com:5432/master_msa"
+    conn = "postgresql://revealdata:H0th15C0ld!!@mastermsa-db-001.cidxb3vnerlr.us-east-1.rds.amazonaws.com:5432/master_msa?sslmode=require"
 
 
 except:
