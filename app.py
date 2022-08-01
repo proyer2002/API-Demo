@@ -24,9 +24,9 @@ db.init_app(app)
 
 # Database Connection
 try:
-    DATABASE_URL = os.environ['postgresql://revealdata:H0th15C0ld!!@mastermsa-db-001.cidxb3vnerlr.us-east-1.rds.amazonaws.com:5432/master_msa']
-    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-    # conn = "postgresql://revealdata:H0th15C0ld!!@mastermsa-db-001.cidxb3vnerlr.us-east-1.rds.amazonaws.com:5432/master_msa"
+    # DATABASE_URL = os.environ['postgresql://revealdata:H0th15C0ld!!@mastermsa-db-001.cidxb3vnerlr.us-east-1.rds.amazonaws.com:5432/master_msa']
+    # conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    conn = "postgresql://revealdata:H0th15C0ld!!@mastermsa-db-001.cidxb3vnerlr.us-east-1.rds.amazonaws.com:5432/master_msa"
 
 
 except:
