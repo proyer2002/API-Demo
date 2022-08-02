@@ -1,6 +1,6 @@
 Flask-RESTful
 Flask-JWT
-flask_jwt_extended==4.4.2
+flask-jwt-extended
 Flask-SQLAlchemy
 uwsgi
 Flask

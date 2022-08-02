@@ -16,8 +16,6 @@ from blacklist import BLACKLIST
 from db import db
 
 import sys
-import os
-import psycopg2
 
 app = Flask(__name__)
 db.init_app(app)
@@ -45,7 +43,7 @@ def add_claims_to_jwt(identity):
 
 
 @jwt.expired_token_loader
-def expired_token_callback():
+def expired_token_callback(jwt_header, jwt_payload):
     return jsonify({
         'description': 'The token has expired',
         'error': 'token_expired'
@@ -69,7 +67,7 @@ def mssing_token_callback(error):
 
 
 @jwt.needs_fresh_token_loader
-def token_not_fresh_callback():
+def token_not_fresh_callback(jwt_header, jwt_payload):
     return jsonify({
         'description': 'Token is not fresh!',
         'error': 'fresh_token_required'
@@ -77,7 +75,7 @@ def token_not_fresh_callback():
 
 
 @jwt.revoked_token_loader
-def revoked_token_callback():
+def revoked_token_callback(jwt_header, jwt_payload):
     return jsonify({
         'description': 'Token has been revoked!',
         'error': 'token_revoked'
@@ -85,8 +83,8 @@ def revoked_token_callback():
 
 
 @jwt.token_in_blocklist_loader
-def check_if_token_in_blacklist(decrypted_token):
-    return decrypted_token['jti'] in BLACKLIST
+def check_if_token_in_blacklist(jwt_header, jwt_payload):
+    return jwt_payload['sub'] in BLACKLIST
 
 
 # App configuration
